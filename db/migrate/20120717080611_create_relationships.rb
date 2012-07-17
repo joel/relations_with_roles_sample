@@ -1,0 +1,11 @@
+class CreateRelationships < ActiveRecord::Migration
+  def change
+    create_table :relationships do |t|
+      t.integer :user_id
+      t.integer :project_id
+      t.string :roles
+
+      t.timestamps
+    end
+  end
+end
