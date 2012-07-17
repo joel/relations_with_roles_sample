@@ -23,6 +23,12 @@ describe Project do
       describe 'add user' do
         before { subject.add_user(user_name, group_name) }
         it { subject.user(user_name).should be_present }
+        
+        describe 'find users by group' do
+          it { subject.users_by_group(group_name).should eql [User.find_by_name(user_name)] }
+        end
+        
+        describe 'find authors'
       end
     end
   end

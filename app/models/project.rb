@@ -20,4 +20,12 @@ class Project < ActiveRecord::Base
   def add_user(user_name, group_name)
     relationships.create!(user_id: User.find_by_name(user_name).id, group_id: Group.find_by_name(group_name).id)
   end
+  
+  def users_by_group(group_name)
+    relationships.where(group_id: Group.find_by_name(group_name)).all.collect { |r| r.user }
+  end
+  
+  def authors
+    # relationships.where(group_id: Group.find_by_name(group_name)).all.collect { |r| r.user }
+  end
 end
