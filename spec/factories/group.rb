@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :role do
+  factory :group do
     roles ['create', 'remove', 'treat', 'close'].join(',')
   end
 end
