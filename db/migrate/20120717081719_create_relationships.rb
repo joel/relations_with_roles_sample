@@ -3,7 +3,7 @@ class CreateRelationships < ActiveRecord::Migration
     create_table :relationships do |t|
       t.integer :user_id
       t.integer :project_id
-      t.string :roles
+      t.integer :group_id
 
       t.timestamps
     end
