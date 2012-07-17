@@ -1,5 +1,11 @@
 require 'spec_helper'
 
 describe Project do
-  pending "add some examples to (or delete) #{__FILE__}"
+  
+  describe '' do
+    let(:project) { FactoryGirl.create(:project, :with_users) }
+    subject { project }
+    its(:users) { should eql [project.users.first] }
+  end
+  
 end
