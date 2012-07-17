@@ -4,4 +4,10 @@ class Relationship < ActiveRecord::Base
   belongs_to :user
   belongs_to :project
   belongs_to :group
+  
+  def plist_hash
+    { 'name' => user.name, 
+      'role_id' => group.id }
+  end
+  
 end

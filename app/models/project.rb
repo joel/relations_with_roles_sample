@@ -26,6 +26,6 @@ class Project < ActiveRecord::Base
   end
   
   def authors
-    # relationships.where(group_id: Group.find_by_name(group_name)).all.collect { |r| r.user }
+    relationships.all.collect { |r| r.plist_hash }
   end
 end

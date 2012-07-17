@@ -13,7 +13,9 @@ describe Project do
   describe 'add group' do
     let(:group_name) { 'name of group' }
     let(:roles) { 'create, remove, treat, close' }
+    
     before { subject.add_group(group_name, roles) }
+    
     it { subject.group(group_name).should be_present }
     
     context 'create user' do
@@ -28,7 +30,9 @@ describe Project do
           it { subject.users_by_group(group_name).should eql [User.find_by_name(user_name)] }
         end
         
-        describe 'find authors'
+        describe 'find authors' do
+          it { subject.authors.should eql [ {'name' => user_name, 'role_id' => Group.find_by_name(group_name).id } ] }
+        end
       end
     end
   end
